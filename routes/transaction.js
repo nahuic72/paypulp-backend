@@ -7,5 +7,6 @@ router.post(
   '/',
   /* validateTransaction, validateResult, */ require('../controllers/Transaction/postTransaction.js'),
 )
+router.patch('/complete', require('../controllers/Transaction/completeTransaction.js'))
 
 module.exports = router
