@@ -1,12 +1,14 @@
+const { v4: uuid } = require('uuid')
 const DatesHelp = require('../../helpers/datesHelp')
 const Transaction = require('../../model/transactionModel')
 
 const postTransaction = async (req, res) => {
   const newTransaction = {
+    transactionUuid: uuid(),
     ...req.body,
     buyerUuid: req.userUuid,
     dateTime: DatesHelp.getNow(),
-    wentThrough: true,
+    wentThrough: false,
     geolocation: '(-122.4194, 37.7749)',
   }
 
