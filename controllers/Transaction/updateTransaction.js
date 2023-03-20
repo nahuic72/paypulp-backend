@@ -1,16 +1,13 @@
 const Transaction = require('../../model/transactionModel')
 
-const completeTransaction = async (req, res) => {
+const updateTransaction = async (req, res) => {
   const condition = { transactionUuid: req.body.transactionUuid }
-  const isCompleted = {
-    wentThrough: true,
-    userCompleted: true,
-  }
+  const updateCols = { ...req.body }
 
-  // double check transaction data? qrLink belongs to seller, 
+  // double check transaction data? qrLink belongs to seller,
 
   try {
-    const transaction = await Transaction.updateData('transactions', isCompleted, condition)
+    const transaction = await Transaction.updateData('transactions', updateCols, condition)
     return res.status(200).json(transaction)
   } catch (error) {
     console.log('postQrLink controller', error)
@@ -19,4 +16,4 @@ const completeTransaction = async (req, res) => {
   }
 }
 
-module.exports = completeTransaction
+module.exports = updateTransaction
