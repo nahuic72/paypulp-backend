@@ -1,4 +1,5 @@
 const dbConnect = require('./db/newClient')
+const dbPmConnect = require('./db/newPMClient')
 const minify = require('pg-minify')
 const camelize = require('camelize')
 const { snakizeString } = require('../helpers/casing')
@@ -13,7 +14,7 @@ class QueryModel {
    * @returns {undefined | dbData} returns undefined if query returns nothing
    */
   static async selectBy(table, column, value) {
-    const client = await dbConnect()
+    const client = table === 'payment_methods' ? await dbPmConnect() : await dbConnect()
 
     const tbl = snakizeString(table)
     const col = snakizeString(column)
@@ -26,16 +27,9 @@ class QueryModel {
 
       if (rows.length === 0) return
 
-      // -this is wrong-
-      // const instance = this.castData(rows)
-
-      // return Object.assign({}, instance)
-      // ---------------
-
       const dbData = camelize(rows)
       return dbData
     } catch (err) {
-      // console.error('Error executing query:', err)
       throw new Error('Error retrieving users from database')
     } finally {
       client.end()
