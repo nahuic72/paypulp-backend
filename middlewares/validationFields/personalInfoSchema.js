@@ -28,6 +28,17 @@ const persInfoSchema = checkSchema({
     // isDate: { errorMessage: 'Birth date must be a date' },
     trim: true,
   },
+  gender: {
+    in: ['body'],
+    optional: true,
+    notEmpty: { errorMessage: 'Gender must not be empty' },
+    isString: { errorMessage: 'Gender must be a string' },
+    isAlpha: {
+      options: [locale, { ignore: ' ' }],
+      errorMessage: 'Gender must only contain letters',
+    },
+    trim: true,
+  },
   address: {
     in: ['body'],
     optional: true,
@@ -47,6 +58,17 @@ const persInfoSchema = checkSchema({
     isAlpha: {
       options: [locale, { ignore: ' ' }],
       errorMessage: 'City must only contain letters',
+    },
+    trim: true,
+  },
+  state: {
+    in: ['body'],
+    optional: true,
+    notEmpty: { errorMessage: 'State must not be empty' },
+    isString: { errorMessage: 'State must be a string' },
+    isAlpha: {
+      options: [locale, { ignore: ' ' }],
+      errorMessage: 'State must only contain letters',
     },
     trim: true,
   },
