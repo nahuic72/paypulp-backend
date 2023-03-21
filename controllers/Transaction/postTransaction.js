@@ -1,15 +1,17 @@
+const { v4: uuid } = require('uuid')
 const DatesHelp = require('../../helpers/datesHelp')
 const Transaction = require('../../model/transactionModel')
 
 const postTransaction = async (req, res) => {
   const newTransaction = {
-    ...req.body,
+    transactionUuid: uuid(),
     buyerUuid: req.userUuid,
-    dateTime: DatesHelp.getNow(),
-    wentThrough: true,
+    paymentMethodUuid: 'not selected',
+    ...req.body,
+    wentThrough: false,
+    userCompleted: false,
     geolocation: '(-122.4194, 37.7749)',
   }
-
   // double check transaction data? qrLink belongs to seller, 
 
   try {

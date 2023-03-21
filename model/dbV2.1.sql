@@ -92,6 +92,7 @@ CREATE TABLE payment_methods (
 
 CREATE TABLE transactions (
 	transaction_id serial NOT NULL UNIQUE,
+	transaction_uuid varchar(40) NOT NULL UNIQUE,
 	seller_uuid varchar(40) NOT NULL,
 	buyer_uuid varchar(40) NOT NULL,
 	payment_method_uuid varchar(40) NOT NULL,

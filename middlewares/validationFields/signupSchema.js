@@ -99,7 +99,7 @@ const signupSchema = checkSchema({
     isString: { errorMessage: 'Address must be a string' },
     isAlphanumeric: {
       options: [locale, { ignore: ' ' }],
-      errorMessage: 'Address must only contain letters',
+      errorMessage: 'Address must only contain letters or numbers',
     },
     trim: true,
   },
