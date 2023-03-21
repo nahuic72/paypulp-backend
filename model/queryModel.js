@@ -92,6 +92,7 @@ class QueryModel {
 
     try {
       const { rows } = await client.query(minify(query), values)
+      if (rows.length === 0) throw new Error('No data found')
 
       const dbData = camelize(rows)
 

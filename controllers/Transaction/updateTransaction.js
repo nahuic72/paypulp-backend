@@ -4,7 +4,7 @@ const updateTransaction = async (req, res) => {
   const condition = { transactionUuid: req.body.transactionUuid }
   const updateCols = { ...req.body }
 
-  // double check transaction data? qrLink belongs to seller,
+  // double check transaction data? qrLink belongs to seller, buyeruuid is right?
 
   try {
     const transaction = await Transaction.updateData('transactions', updateCols, condition)
