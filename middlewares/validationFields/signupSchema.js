@@ -60,27 +60,6 @@ const signupSchema = checkSchema({
     // isDate: { errorMessage: 'Birth date must be a date' },
     trim: true,
   },
-  identityDocNumber: {
-    in: ['body'],
-    exists: true,
-    notEmpty: { errorMessage: 'Identity document number must not be empty' },
-    isString: { errorMessage: 'Identity document number must be a string' },
-    isAlphanumeric: {
-      options: [locale, { ignore: ' ' }],
-      errorMessage: 'Identity document number must only contain numbers and letters',
-    },
-    trim: true,
-  },
-  age: {
-    in: ['body'],
-    exists: true,
-    notEmpty: { errorMessage: 'Age must not be empty' },
-    isInt: {
-      options: [locale, { ignore: ' ' }],
-      errorMessage: 'Age must only contain letters',
-    },
-    trim: true,
-  },
   gender: {
     in: ['body'],
     exists: true,

@@ -9,6 +9,7 @@ class User {
     userUuid = null,
     email = null,
     password = null,
+    firstName = null,
     accountType = null,
     funds = null,
   }) {
@@ -16,6 +17,7 @@ class User {
     this.userUuid = userUuid
     this.email = email
     this.password = password
+    this.firstName = firstName
     this.accountType = accountType
     this.funds = funds
   }
@@ -87,28 +89,6 @@ class UserManager extends QueryModel {
       client.end()
     }
   }
-
-  // static deleteUser = async (userUuid) => {
-  //   const client = await dbConnect()
-
-  //   const query = `DELETE FROM users 
-  //     WHERE user_uuid = ($1)`
-
-  //   try {
-  //     const dbRes = await client.query(query, [userUuid])
-
-  //     if (dbRes.rows.length === 0) return
-
-  //     const user = castUser(dbRes.rows[0])
-
-  //     return user
-  //   } catch (err) {
-  //     console.error('Error executing query:', err)
-  //     throw new Error('Error retrieving users from database')
-  //   } finally {
-  //     client.end()
-  //   }
-  // }
 }
 
 module.exports = { User, UserManager }

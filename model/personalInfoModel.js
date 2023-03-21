@@ -7,11 +7,12 @@ class PersonalInfo extends QueryModel {
     lastName = null,
     phone = null,
     birthDate = null,
+    gender = null,
     address = null,
     city = null,
+    state = null,
     country = null,
     timeZone = null,
-    creationTime = null,
   }) {
     super()
     this.personalInfoId = personalInfoId
@@ -19,11 +20,14 @@ class PersonalInfo extends QueryModel {
     this.lastName = lastName
     this.phone = phone
     this.birthDate = birthDate
+    this.birthDate = birthDate
+    this.gender = gender
     this.address = address
     this.city = city
+    this.city = city
+    this.state = state
     this.country = country
     this.timeZone = timeZone
-    this.creationTime = creationTime
   }
 }
 

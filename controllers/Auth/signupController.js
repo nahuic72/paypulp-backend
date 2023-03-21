@@ -26,9 +26,7 @@ const signupController = async (req, res) => {
     userUuid,
     lastName: req.body.lastName,
     phone: req.body.phone,
-    age: req.body.age,
     gender: req.body.gender,
-    identityDocNumber: req.body.identityDocNumber,
     address: req.body.address,
     city: req.body.city,
     state: req.body.state,
@@ -44,7 +42,7 @@ const signupController = async (req, res) => {
     return res.status(400).json(error.toString())
   }
   
-  const creationTime = DatesHelp.getNow()
+  // const creationTime = DatesHelp.getNow()
 
   // insert into user statistics
 
