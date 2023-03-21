@@ -1,6 +1,6 @@
 const camelize = require('camelize')
 const minify = require('pg-minify')
-const dbConnect = require('./newClient')
+const dbConnect = require('./db/newClient')
 const QueryModel = require('./queryModel')
 
 class User {
