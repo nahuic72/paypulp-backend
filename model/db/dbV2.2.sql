@@ -27,7 +27,7 @@ CREATE TABLE personal_info (
 	last_name varchar(50) NOT NULL,
 	phone varchar(20) NOT NULL,
 	birth_date DATE NOT NULL,
-	gender varchar(20) NOT NULL,
+	gender varchar(50) NOT NULL,
 	address varchar(100) NOT NULL,
 	city varchar(50) NOT NULL,
 	state varchar(50) NOT NULL,
