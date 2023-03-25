@@ -1,5 +1,5 @@
 const express = require('express')
-const { persInfoSchema } = require('../../middlewares/validationFields/personalInfoSchema')
+const { persInfoSchema } = require('../../middlewares/validationSchemas/personalInfoSchema')
 const { validateResult } = require('../../middlewares/validators/bodyValid')
 const router = express.Router()
 

@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-const { transactionSchema } = require('../middlewares/validationFields/transactionSchema.js')
+const { transactionSchema } = require('../middlewares/validationSchemas/transactionSchema.js')
 const { validateResult } = require('../middlewares/validators/bodyValid')
 
 router.post(

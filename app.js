@@ -5,10 +5,10 @@ const cors = require('cors')
 require('dotenv').config({ path: './.env' })
 const validateToken = require('./middlewares/validators/tokenValid')
 const { validateResult } = require('./middlewares/validators/bodyValid')
-const { signupValidFields } = require('./middlewares/validationFields/signup')
-const { loginValidFields } = require('./middlewares/validationFields/login')
+const { signupValidFields } = require('./middlewares/validationSchemas/signup')
+const { loginValidFields } = require('./middlewares/validationSchemas/login')
 const { loginValid } = require('./middlewares/validators/loginValid')
-const { signupSchema } = require('./middlewares/validationFields/signupSchema')
+const { signupSchema } = require('./middlewares/validationSchemas/signupSchema')
 const app = express()
 
 // middlewares
