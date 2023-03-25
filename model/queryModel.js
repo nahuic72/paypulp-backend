@@ -30,7 +30,7 @@ class QueryModel {
       const dbData = camelize(rows)
       return dbData
     } catch (err) {
-      throw new Error('Error retrieving users from database')
+      throw new Error('Error retrieving data from database')
     } finally {
       client.end()
     }
@@ -100,6 +100,30 @@ class QueryModel {
     } catch (err) {
       console.error('Error executing query:', err)
       throw err
+    } finally {
+      client.end()
+    }
+  }
+
+  static async deleteFrom(table, column, value) {
+    const client = await this.getClient(table)
+
+    const tbl = snakizeString(table)
+    const col = snakizeString(column)
+
+    const query = `DELETE FROM ${tbl}
+        WHERE ${col} = ($1) 
+        RETURNING *`
+
+    try {
+      const { rows } = await client.query(minify(query), [value])
+
+      if (rows.length === 0) return
+
+      const dbData = camelize(rows)
+      return dbData
+    } catch (err) {console.log('deleting', err)
+      throw new Error('Error deleting from database')
     } finally {
       client.end()
     }
