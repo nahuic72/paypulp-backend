@@ -13,7 +13,7 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
-ADD . .
+ADD . . 
 
-EXPOSE 8080
+EXPOSE 8585
 CMD node ./bin/www
