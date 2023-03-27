@@ -1,6 +1,6 @@
-const dbConnect = require('./db/newClient')
 const dbPmConnect = require('./db/newPMClient')
 const minify = require('pg-minify')
+const dbConnect = require('./db/newClient')
 const camelize = require('camelize')
 const { snakizeString } = require('../helpers/casing')
 const snakeize = require('snakeize')
