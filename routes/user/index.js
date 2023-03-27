@@ -1,5 +1,4 @@
 const express = require('express')
-const { route } = require('../../app')
 const { persInfoSchema } = require('../../middlewares/validationSchemas/personalInfoSchema')
 const { validateResult } = require('../../middlewares/validators/bodyValid')
 const router = express.Router()
