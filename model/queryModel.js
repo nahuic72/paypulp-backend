@@ -14,7 +14,7 @@ class QueryModel {
    * @returns {undefined | dbData} returns undefined if query returns nothing
    */
   static async selectBy(table, column, value) {
-    const client = await this.getClient(table)
+    const client = await dbConnect(table)
 
     const tbl = snakizeString(table)
     const col = snakizeString(column)
@@ -43,7 +43,7 @@ class QueryModel {
    * @returns {dbData}
    */
   static async insertData(table, newData) {
-    const client = await this.getClient(table)
+    const client = await dbConnect(table)
 
     const tbl = snakizeString(table)
     const keys = Object.keys(snakeize(newData)).toString()
@@ -75,7 +75,7 @@ class QueryModel {
    * @returns {obj} updated row
    */
   static async updateData(table, newData, condition) {
-    const client = await this.getClient(table)
+    const client = await dbConnect(table)
 
     const tbl = snakizeString(table)
     const keys = Object.keys(snakeize(newData))
@@ -106,7 +106,7 @@ class QueryModel {
   }
 
   static async deleteFrom(table, column, value) {
-    const client = await this.getClient(table)
+    const client = await dbConnect(table)
 
     const tbl = snakizeString(table)
     const col = snakizeString(column)
@@ -127,10 +127,6 @@ class QueryModel {
     } finally {
       client.end()
     }
-  }
-
-  static async getClient(table) {
-    return table === 'paymentMethods' ? await dbPmConnect() : await dbConnect()
   }
 
   static parameterPositions(arr) {
