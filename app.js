@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const logger = require('morgan')
 const cors = require('cors')
-require('dotenv').config({ path: './.env' })
+
 const validateToken = require('./middlewares/validators/tokenValid')
 const { validateResult } = require('./middlewares/validators/bodyValid')
 const { loginValidFields } = require('./middlewares/validationSchemas/login')
