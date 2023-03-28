@@ -21,6 +21,7 @@ const chooseDb = (table) => {
       user: process.env.PG_USER_2,
       password: process.env.PG_PASSWORD_2,
       database: process.env.PG_DATABASE_2,
+      ssl: true,
     };
   }
   return {
@@ -29,6 +30,7 @@ const chooseDb = (table) => {
     user: process.env.PG_USER,
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DATABASE,
+    ssl: true,
   };
 }
 
