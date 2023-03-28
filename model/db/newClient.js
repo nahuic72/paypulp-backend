@@ -1,5 +1,4 @@
 const { Client } = require('pg')
-require('dotenv').config()
 
 /**
  * create connection to SQL database
